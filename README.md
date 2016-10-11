@@ -19,3 +19,21 @@ way, which is wrong:
 When we set the context to right-to-left, the labels are rendered correctly:
 
 ![RTL, good](screenshots/bidi-usb-rtl-good.png)
+
+## [bsc#953334](https://bugzilla.suse.com/show_bug.cgi?id=953334)
+
+This is a case of an English word with a parenthesised English gloss in an
+Arabic text. Let's say "I love GNU (GNU's not Unix)":
+
+    ./yast-test.rb "أنا أحب GNU (Gnu's Not Unix)."
+
+In the (incorrect) LTR context at least the parentheses are correct.
+
+(TODO add screenshots)
+
+It should help to add an invisible right-to-left-mark (U+200F)
+between the GNU and the opening parenthesis.
+
+## [bsc#989384](https://bugzilla.suse.com/show_bug.cgi?id=989384)
+
+This text is a translation of "Toggle Status (On or Off)"
