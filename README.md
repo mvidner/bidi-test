@@ -14,8 +14,8 @@ Here the global context is left to right. Even if you cannot read Arabic, you
 can observe that some of the widgets have both parentheses facing the same
 way, which is wrong:
 
-![LTR, bad][screenshots/bidi-usb-ltr-bad.png]
+![LTR, bad](screenshots/bidi-usb-ltr-bad.png)
 
 When we set the context to right-to-left, the labels are rendered correctly:
 
-![RTL, good][screenshots/bidi-usb-rtl-good.png]
+![RTL, good](screenshots/bidi-usb-rtl-good.png)
