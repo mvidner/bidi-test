@@ -36,28 +36,20 @@ between the GNU and the opening parenthesis:
 
 ![With a RTL mark, good](screenshots/bidi-gnu-good.png)
 
-## [bsc#989384](https://bugzilla.suse.com/show_bug.cgi?id=989384)
-
-This text is a translation of "Toggle Status (On or Off)"
-
-...
-
 ## [bsc#989391](https://bugzilla.suse.com/show_bug.cgi?id=989391)
 
 
-msgid ""
-"IPA hostname (optional) - may be set if hostname(5) does not reflect the "
-"FQDN used by IPA to identify this host."
+"... may be set if hostname(5) does not reflect the FQDN ..."
 
-Buggy:
-msgstr ""
-"اسم مضيف IPA (اختياري) - يمكن تعيينه إذا كان hostname(5) لا يعكس الاسم "
-"المميز المؤهل بالكامل المستخدم بواسطة IPA لتحديد هذا المضيف."
+    ./yast-label.rb $'يمكن تعيينه إذا كان hostname(5) لا يعكس الاسم المميز المؤهل بالكامل'
 
-Fixed (by adding a Left-to-right mark, U+200E, after the (5)):
-msgstr ""
-"اسم مضيف IPA (اختياري) - يمكن تعيينه إذا كان hostname(5)‎ لا يعكس الاسم "
-"المميز المؤهل بالكامل المستخدم بواسطة IPA لتحديد هذا المضيف."
+![Without a LTR mark, bad](screenshots/bidi-hostname5-bad.png)
+
+Fixed by adding a Left-to-right mark, U+200E, after the (5):
+
+    ./yast-label.rb $'يمكن تعيينه إذا كان hostname(5)\u200e لا يعكس الاسم المميز المؤهل بالكامل'
+
+![With a LTR mark, good](screenshots/bidi-hostname5-good.png)
 
 For the "ldap://" issue, the fix is trickier: surrounding
 the parens with LRMs *and* separating them from "URI" with a RLM.
