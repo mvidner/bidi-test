@@ -38,6 +38,7 @@ between the GNU and the opening parenthesis:
 
 ## [bsc#989391](https://bugzilla.suse.com/show_bug.cgi?id=989391)
 
+### hostname(5)
 
 "... may be set if hostname(5) does not reflect the FQDN ..."
 
@@ -51,15 +52,25 @@ Fixed by adding a Left-to-right mark, U+200E, after the (5):
 
 ![With a LTR mark, good](screenshots/bidi-hostname5-good.png)
 
-For the "ldap://" issue, the fix is trickier: surrounding
+### ldap://
+
+The English string is "URIs (ldap://) of LDAP servers (comma separated)".
+
+If we use no control characters, it comes out quite confused:
+
+    ./yast-label.rb $'عناوين URI (ldap://) لخوادم LDAP (مفصولة باستخدام الفاصلة)'
+
+![LDAP, worse](screenshots/bidi-ldap-worse.png)
+
+Adding a RLM before "ldap" helps a bit:
+
+    ./yast-label.rb $'عناوين URI (\u200fldap://) لخوادم LDAP (مفصولة باستخدام الفاصلة)'
+
+![LDAP, bad](screenshots/bidi-ldap-bad.png)
+
+But the full fix is trickier: surrounding
 the parens with LRMs *and* separating them from "URI" with a RLM.
-(BTW the original string already contained a RLM before "ldap".)
 
-msgid "URIs (ldap://) of LDAP servers (comma separated)"
+    ./yast-label.rb $'عناوين URI \u200f\u200e(ldap://)\u200e لخوادم LDAP (مفصولة باستخدام الفاصلة)'
 
-Buggy:
-msgstr "عناوين URI (‏ldap://) لخوادم LDAP (مفصولة باستخدام الفاصلة)"
-
-Fixed:
-msgstr "عناوين URI ‏‎(ldap://)‎ لخوادم LDAP (مفصولة باستخدام الفاصلة)"
-
+![LDAP, good](screenshots/bidi-ldap-good.png)
