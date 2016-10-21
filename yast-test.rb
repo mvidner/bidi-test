@@ -1,7 +1,7 @@
 #!/usr/sbin/yast2
 # coding: utf-8
 
-# ./yast-test.rb <(echo -n Hello)
+# ./yast-test.rb "مرحبا"
 
 require "yast"
 require "ui/dialog"
