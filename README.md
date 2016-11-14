@@ -1,5 +1,23 @@
 # Testing bidirectional text
 
+[YaST][], the installer of [SUSE Linux Enterprise Server][SLES], is localized
+to many languages, one of them being Arabic. Dealing with text that is a
+mixture of Latin and Arabic script is complex and sometimes we have to deal
+with interesting bugs. Here are some of them, along with the way we have
+solved them. Hopefully it will be useful for you.
+
+[YaST]: http://yast.github.io/
+[SLES]: https://www.suse.com/products/server
+
+## Background
+
+* [Wikipedia: Bi-directional text][w], an overview of the concepts
+* Unicode Standard Annex #9: [Unicode Bidirectional Algorithm][u], the gory
+  details, 50 pages of them
+
+[w]: https://en.wikipedia.org/wiki/Bi-directional_text
+[u]: http://www.unicode.org/reports/tr9/
+
 ## [bsc#989383](https://bugzilla.suse.com/show_bug.cgi?id=989383)
 
 Test [bsc#989383](https://bugzilla.suse.com/show_bug.cgi?id=989383), where
